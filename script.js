@@ -1,17 +1,63 @@
-document.getElementById('cancelBtn').addEventListener('click', function () {
-    document.getElementById('signupForm').reset();
+function validateLoginForm() {
+    var email = $('#email-login').val();
+    var password = $('#password-login').val();
+
+    if (email === "" || password === "") {
+        alert("Por favor, preencha todos os campos.");
+        return false;
+    }
+    return true;
+}
+
+function validateSignupForm() {
+    var fullName = $('#fullName').val();
+    var cep = $('#cep').val();
+    var email = $('#email').val();
+    var password = $('#password').val();
+    var passwordRepeat = $('#psw-repeat').val();
+
+    if (password !== passwordRepeat) {
+        alert("As senhas não correspondem.");
+        return false;
+    }
+
+    if (fullName === "" || cep === "" || email === "" || password === "" || passwordRepeat === "") {
+        alert("Por favor, preencha todos os campos para cadastro.");
+        return false;
+    }
+
+    return true;
+}
+
+$('#loginBtn').click(function (e) {
+    if (validateLoginForm()) {
+        alert("Login efetuado com sucesso!")
+        $('#loginForm')[0].reset();
+    }
 });
 
-document.getElementById('showSignupBtn').addEventListener('click', function () {
-    document.getElementById('signupForm').classList.add('active');
-    document.getElementById('loginForm').classList.remove('active');
-    document.getElementById('showSignupBtn').classList.add('active');
-    document.getElementById('showLoginBtn').classList.remove('active');
+$('#submitBtn').click(function (e) {
+    if (validateSignupForm()) {
+        alert("Cadastrado com sucesso!")
+        $('#signupForm')[0].reset();
+    }
 });
 
-document.getElementById('showLoginBtn').addEventListener('click', function () {
-    document.getElementById('loginForm').classList.add('active');
-    document.getElementById('signupForm').classList.remove('active');
-    document.getElementById('showLoginBtn').classList.add('active');
-    document.getElementById('showSignupBtn').classList.remove('active');
+$('#cancelBtn').click(function () {
+    $('#signupForm')[0].reset();
 });
+
+$('#showSignupBtn').on('click', function () {
+    $('#signupForm').addClass('active');
+    $('#loginForm').removeClass('active');
+    $('#showSignupBtn').addClass('active');
+    $('#showLoginBtn').removeClass('active');
+});
+
+$('#showLoginBtn').on('click', function () {
+    $('#loginForm').addClass('active');
+    $('#signupForm').removeClass('active');
+    $('#showLoginBtn').addClass('active');
+    $('#showSignupBtn').removeClass('active');
+});
+

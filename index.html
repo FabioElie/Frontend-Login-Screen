@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaf E-Commerce</title>
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 
 <header class="header">
@@ -17,12 +18,14 @@
 
 <body>
     <main>
+        
+        <!-- Login -->
         <form class="form active" id="loginForm">
             <div class="form__container">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
+                <label>E-mail ou Nome:</label>
+                <input type="email" id="email-login" required>
+                <label>Senha:</label>
+                <input type="password" id="password-login" required>
                 <div class="form__switch-container">
                     <div class="form__switch-container--left">
                         <label class="switch">
@@ -35,45 +38,36 @@
                         <a href="#">Esqueci a minha senha</a>
                     </span>
                 </div>
-                <button class="button" type="submit">Entrar</button>
+                <button class="button" id="loginBtn" type="submit">Entrar</button>
             </div>
         </form>
+
+        <!-- Cadastro -->
         <form class="form" id="signupForm">
             <div class="form__container">
                 <h1>Cadastre-se</h1>
                 <p>Por favor, preencha o formulário para cadastrar uma conta.</p>
                 <hr>
 
-                <label for="full-name">Nome completo:</label>
-                <input type="text" placeholder="Digite o seu nome completo" id="full-name" name="full-name" required>
+                <label>Nome completo:</label>
+                <input type="text" id="fullName" placeholder="Digite o seu nome completo" required>
 
-                <label for="cep">CEP:</label>
-                <input type="text" placeholder="XXXXX-XXX" id="cep" name="cep" required>
+                <label>CEP:</label>
+                <input type="text" id="cep" placeholder="XXXXX-XXX" required>
 
-                <label for="email">E-mail:</label>
-                <input type="email" placeholder="email@email.com" id="email" name="email" required>
+                <label>E-mail:</label>
+                <input type="email" id="email" placeholder="email@email.com" required>
 
-                <label for="password">Senha:</label>
-                <input type="password" placeholder="Digite uma senha" id="password" name="password" required>
+                <label>Senha:</label>
+                <input type="password" id="password" placeholder="Digite uma senha" required>
 
-                <label for="psw-repeat"><b>Repita a senha:</b></label>
-                <input type="password" placeholder="Digite a mesma senha do campo acima" name="password-repeat"
+                <label>Repita a senha:</label>
+                <input type="password" id="psw-repeat" placeholder="Digite a mesma senha do campo acima"
                     required>
-
-                <div class="form__switch-container">
-                    <label class="switch">
-                        <input class="switch__input" type="checkbox">
-                        <span class="switch__slider"></span>
-                    </label>
-                    <span class="switch__text">
-                        Criando uma conta, você aceita nossos
-                        <a href="#">Termos & Privacidade</a>
-                    </span>
-                </div>
 
                 <div class="clearfix">
                     <button type="button" class="button button--cancel button--half" id="cancelBtn">Limpar</button>
-                    <button type="submit" class="button button--signup button--half">Cadastrar</button>
+                    <button type="submit" class="button button--signup button--half" id="submitBtn">Cadastrar</button>
                 </div>
         </form>
     </main>
